@@ -54,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
                     mCameraId = mCameraManager.getCameraIdList()[0]; //Get the first camera found.
-                    CameraCharacteristics cameraCharacteristics = mCameraManager.getCameraCharacteristics(mCameraId);
+                    /*CameraCharacteristics cameraCharacteristics = mCameraManager.getCameraCharacteristics(mCameraId);
                     StreamConfigurationMap streamConfigurationMap = cameraCharacteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
                     Size[] rawSizes = streamConfigurationMap.getOutputSizes(ImageFormat.RAW_SENSOR);
                     //Size[] jpegSizes = streamConfigurationMap.getOutputSizes(ImageFormat.JPEG);
 
                     rawWidth = rawSizes[0].getWidth();
-                    rawHeight = rawSizes[0].getHeight();
+                    rawHeight = rawSizes[0].getHeight();*/
 
 
                 }
@@ -68,16 +68,16 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("NO_CAMERAS_FOUND", e.toString());
                 }
 
-                ImageReader rawImageReader = ImageReader.newInstance(rawWidth, rawHeight, ImageFormat.RAW_SENSOR, 1);
+                /*ImageReader rawImageReader = ImageReader.newInstance(rawWidth, rawHeight, ImageFormat.RAW_SENSOR, 1);
                 rawImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() {
                     @Override
                     public void onImageAvailable(ImageReader imageReader) {
                         //save raw
                     }
-                }, null);
+                }, null);*/
 
                 final Surface previewSurface = new Surface(mSurfaceTexture);
-                Surface rawCaptureSurface = rawImageReader.getSurface();
+                //Surface rawCaptureSurface = rawImageReader.getSurface();
 
                 if(mMainActivity.checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     //grant the permission
